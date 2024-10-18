@@ -4,6 +4,7 @@ source <(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/build
 # Author: tteck (tteckster)
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
+# 20241018: P: disk 4->8, ram 1->2
 
 function header_info {
 clear
@@ -20,9 +21,9 @@ EOF
 header_info
 echo -e "Loading..."
 APP="Uptime Kuma"
-var_disk="4"
+var_disk="8"
 var_cpu="1"
-var_ram="1024"
+var_ram="2048"
 var_os="debian"
 var_version="12"
 variables
