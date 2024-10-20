@@ -4,6 +4,7 @@ source <(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/build
 # Author: tteck (tteckster)
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
+# PE 20241020: more disk/ra, CTID=8001
 
 function header_info {
 clear
@@ -20,7 +21,7 @@ EOF
 header_info
 echo -e "Loading..."
 APP="Syncthing"
-var_disk="8"
+var_disk="100"
 var_cpu="2"
 var_ram="2048"
 var_os="debian"
@@ -32,23 +33,25 @@ catch_errors
 function default_settings() {
   CT_TYPE="1"
   PW=""
-  CT_ID=$NEXTID
+  CT_ID=8001
+  #CT_ID=$NEXTID
   HN=$NSAPP
   DISK_SIZE="$var_disk"
   CORE_COUNT="$var_cpu"
   RAM_SIZE="$var_ram"
   BRG="vmbr0"
-  NET="dhcp"
-  GATE=""
+  #NET="dhcp"
+  NET="192.168.2.77/24"
+  GATE="192.168.2.1"
   APT_CACHER=""
   APT_CACHER_IP=""
-  DISABLEIP6="no"
+  DISABLEIP6="yes"
   MTU=""
   SD=""
   NS=""
   MAC=""
   VLAN=""
-  SSH="no"
+  SSH="yes"
   VERB="no"
   echo_default
 }
